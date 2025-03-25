@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
+use App\Models\Job;
+use App\Models\Language;
+use App\Models\Location;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +16,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(JobSeeder::class);
+        $this->call(LanguageSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(LocationSeeder::class);
+        $this->call(JobPivotSeeder::class);
+        $this->call(JobAttributeSeeder::class);
+        $this->call(JobAttributesValuesSeeder::class);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }
