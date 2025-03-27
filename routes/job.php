@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Route;
 | Job Routes
 |--------------------------------------------------------------------------
 */
-Route::prefix('job')
+Route::prefix('jobs')
     ->controller(JobController::class)
     ->group(function () {
     Route::get('/', 'index');
     Route::post('/', 'create');
+    Route::get('/find', 'search');
 });
 

@@ -28,13 +28,13 @@ class Job extends Model
         return $this->belongsToMany(Language::class, 'jobs_languages', 'job_id', 'language_id')->withTimestamps();
     }
     public function locations(){
-        return $this->belongsToMany(Language::class, 'jobs_locations', 'job_id', 'location_id')->withTimestamps();
+        return $this->belongsToMany(Location::class, 'jobs_locations', 'job_id', 'location_id')->withTimestamps();
     }
     public function categories(){
-        return $this->belongsToMany(Language::class, 'jobs_categories', 'job_id', 'category_id')->withTimestamps();
+        return $this->belongsToMany(Category::class, 'jobs_categories', 'job_id', 'category_id')->withTimestamps();
     }
-    public function attributes()
+    public function jobAttributes()
     {
-        return $this->hasMany(JobAttributeValue::class, 'attribute_id');
+        return $this->hasMany(JobAttributeValue::class, 'job_id');
     }
 }

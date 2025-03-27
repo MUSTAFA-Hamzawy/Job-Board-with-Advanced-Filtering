@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\JobFilterService;
 use App\Services\JobService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
@@ -15,6 +16,10 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(JobService::class, function () {
             return new JobService();
+        });
+
+        $this->app->bind(JobFilterService::class, function () {
+            return new JobFilterService();
         });
     }
 

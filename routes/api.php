@@ -24,9 +24,9 @@ Route::fallback(function () {
     ]);
 });
 
-Route::get('/location', [LocationController::class, 'index']);
-Route::get('/category', [CategoryController::class, 'index']);
-Route::get('/language', [LanguageController::class, 'index']);
-Route::get('/attribute', [AttributeController::class, 'index']);
+Route::get('/locations', [LocationController::class, 'index']);
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/languages', [LanguageController::class, 'index']);
+Route::get('/attributes', [AttributeController::class, 'index']);
 
 require_once __DIR__ . '/job.php';
