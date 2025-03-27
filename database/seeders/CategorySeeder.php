@@ -13,7 +13,8 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        if (Category::count() > 0) return; // if the table has data, do not seed
+        if (Category::count() > 0) return; // If the table has data, do not seed
+
         $categories = [
             ['name' => 'Software Development'],
             ['name' => 'Data Science'],
@@ -22,6 +23,28 @@ class CategorySeeder extends Seeder
             ['name' => 'DevOps'],
             ['name' => 'Product Management'],
             ['name' => 'UI/UX Design'],
+            ['name' => 'Backend Development'],
+            ['name' => 'Frontend Development'],
+            ['name' => 'Full-Stack Development'],
+            ['name' => 'Web Development'],
+            ['name' => 'Mobile App Development'],
+            ['name' => 'Game Development'],
+            ['name' => 'Embedded Systems'],
+            ['name' => 'Desktop Software Development'],
+            ['name' => 'AI & Machine Learning'],
+            ['name' => 'Blockchain Development'],
+            ['name' => 'Networking & IT Support'],
+            ['name' => 'System Administration'],
+            ['name' => 'Technical Writing'],
+            ['name' => 'Quality Assurance (QA)'],
+            ['name' => 'Database Administration'],
+            ['name' => 'Big Data Engineering'],
+            ['name' => 'E-commerce Development'],
+            ['name' => 'Business Intelligence'],
+            ['name' => 'Software Testing'],
+            ['name' => 'Security Analysis'],
+            ['name' => 'IT Project Management'],
+            ['name' => 'AR/VR Development']
         ];
 
         foreach ($categories as $category) {

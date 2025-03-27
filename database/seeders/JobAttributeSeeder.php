@@ -18,7 +18,7 @@ class JobAttributeSeeder extends Seeder
         $attributes = [
             ['name' => 'years_experience', 'type' => 'number', 'options' => null],
             ['name' => 'remote_work_allowed', 'type' => 'boolean', 'options' => null],
-            ['name' => 'job_level', 'type' => 'select', 'options' => json_encode(['Junior', 'Mid', 'Senior'])],
+            ['name' => 'job_level', 'type' => 'select', 'options' => json_encode(['junior', 'mid', 'senior'])],
             ['name' => 'industry', 'type' => 'select', 'options' => json_encode(['Tech', 'Finance', 'Healthcare', 'Marketing'])],
             ['name' => 'contract_length', 'type' => 'number', 'options' => null],
             ['name' => 'available_start_date', 'type' => 'date', 'options' => null],
