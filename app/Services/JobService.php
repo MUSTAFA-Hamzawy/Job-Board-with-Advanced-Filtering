@@ -27,11 +27,10 @@ class JobService
 
             $job->locations()->attach($data['location_ids']);
             $job->languages()->attach($data['language_ids']);
-            $job->categories()->attach($data['category_id']);
+            $job->categories()->attach($data['category_ids']);
             if (!empty($data['attributes'])) {
                 foreach ($data['attributes'] as $attribute) {
-                    DB::table('job_attribute_values')->insert([
-                        'job_id' => $job->id,
+                    $job->jobAttributes()->create([
                         'attribute_id' => $attribute['id'],
                         'value' => $attribute['value'],
                         'created_at' => now(),

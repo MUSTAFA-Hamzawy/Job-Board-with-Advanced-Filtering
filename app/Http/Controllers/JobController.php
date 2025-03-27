@@ -25,10 +25,19 @@ class JobController extends Controller
     {
         try {
             $jobs = $jobFilterService->applyFilters($request)->paginate(10);
+
+            // Hide pivot fields in related models
+            $jobs->getCollection()->transform(function ($job) {
+                $job->languages->makeHidden('pivot');
+                $job->locations->makeHidden('pivot');
+                $job->categories->makeHidden('pivot');
+                return $job;
+            });
+
             return response()->json([
-                'message' => 'Job retrieved successfully',
-                'data' => $jobs->toArray()
-            ], 201);
+                'message' => 'Jobs retrieved successfully',
+                'data' => $jobs,
+            ], 200);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Error fetching jobs', 'message' => $e->getMessage()], 500);
         }
@@ -58,7 +67,6 @@ class JobController extends Controller
 
     public function add()
     {
-        // Fetch locations, languages, categories, and attributes from the API
         $locations = Location::all();
         $languages = Language::all();
         $categories = Category::all();
@@ -70,12 +78,10 @@ class JobController extends Controller
     {
         $response = $this->create($request);
 
-        // If the response is successful (201 Created)
         if ($response->getStatusCode() === 201) {
             return redirect()->route('jobs.add')->with('success', 'Job added successfully!');
         }
 
-        // If there are validation errors or other issues
         return redirect()->back()->withInput()->with('error', $response->getData()->message);
     }
 }

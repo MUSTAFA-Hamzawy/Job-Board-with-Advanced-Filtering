@@ -37,4 +37,13 @@ class Job extends Model
     {
         return $this->hasMany(JobAttributeValue::class, 'job_id');
     }
+
+    public static function getRelationships(): array
+    {
+        return [
+            'languages',
+            'locations',
+            'categories',
+        ];
+    }
 }

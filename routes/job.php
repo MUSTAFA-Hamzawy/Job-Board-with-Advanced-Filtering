@@ -14,6 +14,5 @@ Route::prefix('jobs')
     ->group(function () {
     Route::get('/', 'index');
     Route::post('/', 'create');
-    Route::get('/find', 'search');
 });
 

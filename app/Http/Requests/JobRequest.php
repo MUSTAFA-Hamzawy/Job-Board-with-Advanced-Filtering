@@ -35,7 +35,8 @@ class JobRequest extends FormRequest
             'location_ids.*' => ['exists:locations,id'],
             'language_ids' => ['required', 'array'],
             'language_ids.*' => ['exists:languages,id'],
-            'category_id' => ['required', 'exists:categories,id'],
+            'category_ids' => ['required', 'array'],
+            'category_ids.*' => ['exists:languages,id'],
 
             // Validate attributes
             'attributes' => ['nullable', 'array'],
